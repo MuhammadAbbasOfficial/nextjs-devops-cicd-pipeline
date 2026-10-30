@@ -357,7 +357,7 @@ Android Developer (5+ years) transitioning into DevOps
 
 - GitHub: [@MuhammadAbbasOfficial](https://github.com/MuhammadAbbasOfficial)
 - Email: mabbas786official@gmail.com
-- Location: Islamabad, Pakistan
+- Location: Mardan, Pakistan
 
 ---
 
