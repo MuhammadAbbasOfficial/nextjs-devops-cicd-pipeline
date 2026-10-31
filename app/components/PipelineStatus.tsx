@@ -8,6 +8,7 @@ interface VersionData {
   version: string;
   uptime: string;
   podName: string;
+  nodeEnv?: string;
   timestamp: string;
 }
 
