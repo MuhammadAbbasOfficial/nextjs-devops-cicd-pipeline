@@ -9,6 +9,13 @@
     - name: Apply Service YAML
       command: kubectl apply -f service.yaml
       
+    # Yeh naya task add kiya gaya hai
+    - name: Restart Deployment to pull the latest image
+      command: kubectl rollout restart deployment/nextjs-app
+      
+    - name: Wait for rollout to finish
+      command: kubectl rollout status deployment/nextjs-app
+      
     - name: Verify Pods are running
       command: kubectl get pods
       register: pod_status

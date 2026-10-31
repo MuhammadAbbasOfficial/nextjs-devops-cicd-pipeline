@@ -17,5 +17,34 @@ spec:
       containers:
       - name: nextjs-app
         image: abbas786777/nextjs-devops-app:latest
+        
+        # Yeh line ensure karegi ke Kubernetes hamesha Docker Hub se naya image pull kare
+        imagePullPolicy: Always 
+        
         ports:
         - containerPort: 3000
+        
+        # App ko chalne ke liye kitne resources chahiye
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+            
+        # K8s check karega ke app responsive hai ya nahi
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 10 # App ko start hone ke liye 10 sec dein
+          periodSeconds: 5        # Har 5 sec baad check karein
+          
+        # Agar app hang ho jaye toh K8s usko restart kar dega
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 15 
+          periodSeconds: 10
