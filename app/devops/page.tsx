@@ -1,115 +1,164 @@
-export default function DevOpsPage() {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Portfolio — Muhammad Abbas | DevOps Engineer",
+  description:
+    "Muhammad Abbas portfolio showcasing DevOps skills in CI/CD, Docker, Kubernetes, Ansible, AWS, and cloud infrastructure.",
+};
+
+const technicalSkills = [
+  "CI/CD",
+  "Docker",
+  "Kubernetes",
+  "Ansible",
+  "AWS EC2",
+  "Linux & Bash",
+  "Git & GitHub",
+  "YAML & Python",
+];
+
+const projects = [
+  {
+    name: "End-to-End CI/CD Pipeline for a Next.js Application",
+    link: "https://github.com/MuhammadAbbasOfficial/nextjs-devops-cicd-pipeline",
+    description:
+      "Built a complete pipeline using GitHub, Jenkins, Docker, Docker Hub, Ansible, and K3s on AWS EC2. The app is deployed with 2 replicas and exposed via NodePort.",
+  },
+];
+
+export default function PortfolioPage() {
   return (
-    <main
-      style={{
-        minHeight: '100vh',
-        background: 'radial-gradient(circle at top, #1d4ed8 0%, #0f172a 42%, #020817 100%)',
-        color: '#e2e8f0',
-        fontFamily: 'Arial, sans-serif',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '40px 20px',
-      }}
-    >
-      <section
-        style={{
-          maxWidth: '1100px',
-          width: '100%',
-          background: 'rgba(15, 23, 42, 0.78)',
-          border: '1px solid rgba(148, 163, 184, 0.2)',
-          borderRadius: '28px',
-          boxShadow: '0 24px 70px rgba(15, 23, 42, 0.6)',
-          padding: '48px 32px',
-        }}
-      >
-        <p
-          style={{
-            margin: 0,
-            color: '#67e8f9',
-            letterSpacing: '0.16em',
-            textTransform: 'uppercase',
-            fontSize: '12px',
-            fontWeight: 700,
-          }}
-        >
-          About Me
-        </p>
+    <main className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(34,211,238,0.15),_transparent_30%),linear-gradient(180deg,#020817_0%,#0f172a_100%)] px-4 py-12 text-zinc-200 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl space-y-10">
+        <section className="rounded-[28px] border border-zinc-800 bg-zinc-900/70 p-6 shadow-2xl shadow-black/20 sm:p-10">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.24em] text-cyan-400">Portfolio</p>
+              <h1 className="mt-4 text-4xl font-bold text-white sm:text-5xl lg:text-6xl">
+                MUHAMMAD ABBAS
+              </h1>
+              <p className="mt-3 max-w-2xl text-lg text-cyan-300">
+                DevOps Engineer | CI/CD • Docker • Kubernetes • Ansible • AWS
+              </p>
+            </div>
+            <div className="rounded-2xl border border-zinc-700 bg-zinc-950/60 p-4 text-sm text-zinc-300">
+              <p>mabbas786official@gmail.com</p>
+              <p>+92 345-0715686</p>
+              <p>Mardan, Pakistan</p>
+              <p>GitHub: github.com/MuhammadAbbasOfficial</p>
+              <p className="mt-2 text-emerald-400">Available Immediately</p>
+            </div>
+          </div>
+        </section>
 
-        <h1
-          style={{
-            fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
-            lineHeight: 1.1,
-            margin: '18px 0 20px',
-            color: '#f8fafc',
-          }}
-        >
-          I am Abbas, and I am deeply interested in DevOps.
-        </h1>
+        <section className="rounded-[28px] border border-zinc-800 bg-zinc-900/70 p-6 sm:p-8">
+          <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-cyan-400">Professional summary</p>
+          <p className="text-lg leading-8 text-zinc-300">
+            Motivated Computer Science graduate with hands-on experience building a complete CI/CD pipeline for a
+            Next.js application from GitHub to a running Kubernetes cluster using Jenkins, Docker, Docker Hub,
+            Ansible, and K3s on an AWS EC2 Ubuntu server. Skilled in containerization, pipeline automation,
+            infrastructure as code, and cloud networking, with a strong interest in contributing to real engineering
+            workflows and production-ready systems.
+          </p>
+        </section>
 
-        <p
-          style={{
-            fontSize: '1.12rem',
-            lineHeight: 1.9,
-            color: '#cbd5e1',
-            margin: '0 0 28px',
-          }}
-        >
-          I am a person who enjoys learning how technology works in real-world environments, especially
-          when it helps teams deliver software faster, safer, and more reliably. My interest in DevOps
-          comes from the fact that it connects development and operations, making the whole process more
-          efficient and automated. I like understanding how code moves from development to production,
-          how systems remain stable, and how automation improves both speed and quality.
-        </p>
+        <section className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+          <div className="rounded-[28px] border border-zinc-800 bg-zinc-900/70 p-6 sm:p-8">
+            <p className="mb-5 text-sm font-bold uppercase tracking-[0.2em] text-cyan-400">Technical skills</p>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {technicalSkills.map((skill) => (
+                <div key={skill} className="rounded-xl border border-zinc-800 bg-zinc-950/60 px-4 py-3 font-medium text-white">
+                  {skill}
+                </div>
+              ))}
+            </div>
+          </div>
 
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-            gap: '18px',
-            marginBottom: '28px',
-          }}
-        >
-          {[
-            'CI/CD Pipelines',
-            'Docker & Containers',
-            'Kubernetes',
-            'Cloud Platforms',
-            'Infrastructure as Code',
-            'Monitoring & Automation',
-          ].map((skill) => (
-            <div
-              key={skill}
-              style={{
-                background: 'rgba(30, 41, 59, 0.9)',
-                border: '1px solid rgba(148, 163, 184, 0.18)',
-                borderRadius: '16px',
-                padding: '18px 16px',
-                fontWeight: 700,
-                textAlign: 'center',
-                color: '#f8fafc',
-              }}
-            >
-              {skill}
+          <div className="rounded-[28px] border border-zinc-800 bg-zinc-900/70 p-6 sm:p-8">
+            <p className="mb-5 text-sm font-bold uppercase tracking-[0.2em] text-cyan-400">Quick profile</p>
+            <ul className="space-y-3 text-zinc-300">
+              <li>• Jenkins pipelines and credentials handling</li>
+              <li>• Docker multi-stage builds and image optimization</li>
+              <li>• Kubernetes deployments, services, and replica management</li>
+              <li>• Ansible playbooks for repeatable deployment automation</li>
+              <li>• AWS EC2 setup, security groups, and networking</li>
+            </ul>
+          </div>
+        </section>
+
+        <section className="rounded-[28px] border border-zinc-800 bg-zinc-900/70 p-6 sm:p-8">
+          <p className="mb-6 text-sm font-bold uppercase tracking-[0.2em] text-cyan-400">DevOps projects</p>
+
+          {projects.map((project) => (
+            <div key={project.name} className="rounded-2xl border border-zinc-800 bg-zinc-950/60 p-6">
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xl font-semibold text-cyan-300 hover:text-cyan-200"
+              >
+                {project.name}
+              </a>
+              <p className="mt-3 text-zinc-300">{project.description}</p>
+
+              <div className="mt-5 grid gap-4 md:grid-cols-2">
+                <div className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-4">
+                  <h3 className="mb-2 font-semibold text-white">CI Pipeline</h3>
+                  <p className="text-sm leading-7 text-zinc-300">
+                    Designed a Jenkins declarative pipeline that builds a Docker image from GitHub source code and pushes it to Docker Hub using credentials stored in Jenkins.
+                  </p>
+                </div>
+                <div className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-4">
+                  <h3 className="mb-2 font-semibold text-white">Containerization</h3>
+                  <p className="text-sm leading-7 text-zinc-300">
+                    Containerized the application with a multi-stage Dockerfile using Node 20 Alpine to optimize build and runtime efficiency.
+                  </p>
+                </div>
+                <div className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-4">
+                  <h3 className="mb-2 font-semibold text-white">Deployment & Orchestration</h3>
+                  <p className="text-sm leading-7 text-zinc-300">
+                    Deployed the application on a lightweight Kubernetes (K3s) cluster with 2 replicas and exposed it through a NodePort service.
+                  </p>
+                </div>
+                <div className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-4">
+                  <h3 className="mb-2 font-semibold text-white">Infrastructure as Code</h3>
+                  <p className="text-sm leading-7 text-zinc-300">
+                    Wrote Ansible playbooks to apply Kubernetes manifests and verify pod status, removing manual steps and improving repeatability.
+                  </p>
+                </div>
+              </div>
             </div>
           ))}
-        </div>
+        </section>
 
-        <p
-          style={{
-            fontSize: '1.08rem',
-            lineHeight: 1.9,
-            color: '#dbeafe',
-            margin: 0,
-          }}
-        >
-          My goal is to keep building strong skills in DevOps by learning automation, Linux, cloud
-          infrastructure, containerization, deployment strategies, and monitoring tools. I am motivated by
-          the idea of creating systems that are scalable, reliable, and efficient. For me, DevOps is not only
-          about tools and technology, but also about teamwork, continuous improvement, and making software
-          delivery smoother for everyone.
-        </p>
-      </section>
+        <section className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="rounded-[28px] border border-zinc-800 bg-zinc-900/70 p-6 sm:p-8">
+            <p className="mb-5 text-sm font-bold uppercase tracking-[0.2em] text-cyan-400">Education</p>
+            <div className="space-y-3 text-zinc-300">
+              <p className="text-xl font-semibold text-white">Master of Computer Science (MCS)</p>
+              <p>Virtual University of Pakistan</p>
+            </div>
+          </div>
+
+          <div className="rounded-[28px] border border-zinc-800 bg-zinc-900/70 p-6 sm:p-8">
+            <p className="mb-5 text-sm font-bold uppercase tracking-[0.2em] text-cyan-400">Contact us</p>
+            <div className="space-y-3 text-zinc-300">
+              <p><span className="font-semibold text-white">Email:</span> mabbas786official@gmail.com</p>
+              <p><span className="font-semibold text-white">Phone:</span> +92 345-0715686</p>
+              <p><span className="font-semibold text-white">Location:</span> Mardan, Pakistan</p>
+              <p><span className="font-semibold text-white">GitHub:</span> github.com/MuhammadAbbasOfficial</p>
+              <a
+                href="https://wa.me/923450715686"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center rounded-xl bg-emerald-500 px-4 py-2 font-semibold text-white transition hover:bg-emerald-400"
+              >
+                WhatsApp: +92 345-0715686
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
   );
 }

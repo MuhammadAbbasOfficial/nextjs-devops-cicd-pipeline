@@ -38,6 +38,15 @@ pipeline {
                 sh "docker push ${DOCKER_HUB_USER}/${IMAGE_NAME}:${env.BUILD_NUMBER}"
             }
         }
+
+        stage('Deploy to K8s') {
+            steps {
+                echo 'Kubernetes mein naya image deploy ho raha hai...'
+                sh 'kubectl rollout restart deployment/nextjs-app'
+                sh 'kubectl rollout status deployment/nextjs-app'
+                sh 'kubectl rollout status deployment/nextjs-app --timeout=60s' 
+            }
+        }
         
         stage('Cleanup') {
             steps {

@@ -86,7 +86,6 @@ export default function AboutPage() {
       <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none" />
 
       <div className="relative mx-auto max-w-5xl">
-        {/* Header */}
         <div className="mb-12">
           <h1 className="text-3xl font-bold text-white mb-3">
             Architecture <span className="gradient-text">Overview</span>
@@ -97,11 +96,9 @@ export default function AboutPage() {
           </p>
         </div>
 
-        {/* Pipeline Steps */}
         <div className="mb-12">
           <h2 className="text-lg font-semibold text-white mb-4">How the Pipeline Works</h2>
           <div className="relative">
-            {/* Connecting line */}
             <div className="absolute left-[2.25rem] top-10 bottom-10 w-px bg-gradient-to-b from-zinc-700 via-zinc-700 to-transparent hidden sm:block" />
             <div className="flex flex-col gap-4">
               {pipelineSteps.map((s) => (
@@ -119,7 +116,6 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Tech Stack */}
         <div className="mb-12">
           <h2 className="text-lg font-semibold text-white mb-4">Tech Stack</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -139,7 +135,6 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* API Endpoints */}
         <div className="mb-12">
           <h2 className="text-lg font-semibold text-white mb-4">API Endpoints</h2>
           <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 overflow-hidden divide-y divide-zinc-800">
@@ -171,7 +166,6 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* ENV vars */}
         <div className="mb-12">
           <h2 className="text-lg font-semibold text-white mb-4">Environment Variables</h2>
           <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 overflow-hidden">
@@ -203,7 +197,6 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* GitHub CTA */}
         <div className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
             <h3 className="text-sm font-semibold text-white mb-1">View Source Code</h3>

@@ -25,6 +25,7 @@ export default function Footer() {
             <Link href="/" className="hover:text-zinc-300 transition-colors">Home</Link>
             <Link href="/tools" className="hover:text-zinc-300 transition-colors">Tools</Link>
             <Link href="/about" className="hover:text-zinc-300 transition-colors">About</Link>
+            <Link href="/devops" className="hover:text-zinc-300 transition-colors">Portfolio</Link>
           </div>
 
           {/* GitHub */}
