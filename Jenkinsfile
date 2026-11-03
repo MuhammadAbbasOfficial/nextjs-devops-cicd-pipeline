@@ -42,9 +42,11 @@ pipeline {
         stage('Deploy to K8s') {
             steps {
                 echo 'Kubernetes mein naya image deploy ho raha hai...'
-                sh 'kubectl rollout restart deployment/nextjs-app'
-                sh 'kubectl rollout status deployment/nextjs-app'
-                sh 'kubectl rollout status deployment/nextjs-app --timeout=60s' 
+                // Yahan humne woh credential ID use ki hai jo aapne abhi banayi hai
+                withKubeConfig(credentialsId: 'k3s-kubeconfig', serverUrl: 'https://127.0.0.1:6443') {
+                    sh 'kubectl rollout restart deployment/nextjs-app'
+                    sh 'kubectl rollout status deployment/nextjs-app'
+                }
             }
         }
         
